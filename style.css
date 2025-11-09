@@ -1,0 +1,586 @@
+/* Base Font */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #FFFFFF;
+}
+#spline-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1; border: none;
+}
+.main-content {
+    position: relative; z-index: 1;
+    min-height: 100vh;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+@keyframes headerGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.header-animated-bg {
+        background: linear-gradient(-45deg, rgba(29, 78, 216, 0.8), rgba(124, 58, 237, 0.8), rgba(219, 234, 254, 0.8));
+        background-size: 400% 400%;
+        animation: headerGradient 15s ease infinite;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+@keyframes headerFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.header-fade-in {
+    animation: headerFadeIn 0.6s ease-out forwards;
+    animation-delay: 0.1s;
+    opacity: 0;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+.btn-pulse:hover {
+        animation: pulse 1s infinite ease-in-out;
+}
+.nav-link-underline { position: relative; }
+.nav-link-underline::after {
+    content: '';
+    position: absolute;
+    width: 0; height: 2px;
+    bottom: -4px; left: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease-out;
+}
+.nav-link-underline:hover::after { width: 100%; }
+.font-lora { font-family: 'Lora', serif; }
+.font-lato { font-family: 'Lato', sans-serif; }
+.page-hidden {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.page-showing {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+.feature-shadow {
+    transition: all 0.3s ease-out;
+}
+.feature-shadow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   LOGIN & REGISTER PAGES - LIGHT MODE
+   ======================================== */
+
+/* Login Page Styling */
+body:has(#login-form),
+body:has(#register-form) {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+#login-form,
+#register-form {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+#login-form h1,
+#register-form h1 {
+    color: #667eea;
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+
+#login-form div,
+#register-form div {
+    margin-bottom: 20px;
+}
+
+#login-form label,
+#register-form label {
+    display: block;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+#login-form input[type="text"],
+#login-form input[type="password"],
+#register-form input[type="text"],
+#register-form input[type="password"] {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+#login-form input:focus,
+#register-form input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+#login-form button[type="submit"],
+#register-form button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+}
+
+#login-form button:hover,
+#register-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+#login-form button:active,
+#register-form button:active {
+    transform: translateY(0);
+}
+
+#login-form p,
+#register-form p {
+    text-align: center;
+    margin-top: 25px;
+    color: #666;
+    font-size: 0.95em;
+}
+
+#login-form a,
+#register-form a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+#login-form a:hover,
+#register-form a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* ========================================
+   DASHBOARD PAGE - DARK MODE (YouTube Studio Style)
+   ======================================== */
+
+body:has(#sidebar-nav) {
+    background-color: #181818;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Sidebar Navigation */
+#sidebar-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 240px;
+    height: 100vh;
+    background-color: #212121;
+    padding: 20px 0;
+    border-right: 1px solid #303030;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+#sidebar-nav h2 {
+    color: #ffffff;
+    font-size: 1.5em;
+    font-weight: 700;
+    padding: 0 20px 20px;
+    margin: 0 0 20px;
+    border-bottom: 1px solid #303030;
+    font-family: 'Lato', sans-serif;
+}
+
+#sidebar-nav nav {
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar-nav nav a {
+    color: #aaaaaa;
+    text-decoration: none;
+    padding: 12px 20px;
+    margin: 4px 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+#sidebar-nav nav a:hover {
+    background-color: #303030;
+    color: #ffffff;
+}
+
+#sidebar-nav nav a[data-page].active {
+    background-color: #3ea6ff;
+    color: #ffffff;
+}
+
+#sidebar-nav > a[href="/logout"] {
+    color: #ff4444;
+    text-decoration: none;
+    padding: 12px 20px;
+    margin: 20px 8px 8px;
+    border-radius: 8px;
+    border: 1px solid #303030;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    text-align: center;
+    display: block;
+}
+
+#sidebar-nav > a[href="/logout"]:hover {
+    background-color: #ff4444;
+    color: #ffffff;
+    border-color: #ff4444;
+}
+
+/* Main Content Area */
+body:has(#sidebar-nav) main {
+    margin-left: 240px;
+    padding: 30px 40px;
+    min-height: 100vh;
+    background-color: #181818;
+}
+
+/* Page Sections */
+#page-home,
+#page-vani-voice,
+#page-analytics {
+    display: none;
+    animation: fadeInUp 0.4s ease-out;
+}
+
+#page-home.active,
+#page-vani-voice.active,
+#page-analytics.active {
+    display: block;
+}
+
+#page-home h1,
+#page-vani-voice h1,
+#page-analytics h1 {
+    color: #ffffff;
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: 'Lato', sans-serif;
+}
+
+#page-home p,
+#page-analytics p {
+    color: #aaaaaa;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+#page-analytics a {
+    color: #3ea6ff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+#page-analytics a:hover {
+    color: #6fc1ff;
+    text-decoration: underline;
+}
+
+/* Chat Window */
+#chat-window {
+    background-color: #212121;
+    border: 1px solid #303030;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    min-height: 300px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+#chat-window p {
+    color: #aaaaaa;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* Confirmation Buttons */
+#confirmation-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+
+#btn-yes,
+#btn-no {
+    padding: 12px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+#btn-yes {
+    background-color: #3ea6ff;
+    color: #ffffff;
+}
+
+#btn-yes:hover {
+    background-color: #6fc1ff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(62, 166, 255, 0.4);
+}
+
+#btn-no {
+    background-color: #303030;
+    color: #ffffff;
+}
+
+#btn-no:hover {
+    background-color: #404040;
+    transform: translateY(-2px);
+}
+
+/* Record Button */
+#record-button {
+    display: block;
+    margin: 0 auto;
+    padding: 18px 48px;
+    background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
+    font-family: 'Inter', sans-serif;
+}
+
+#record-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 68, 68, 0.5);
+}
+
+#record-button:active {
+    transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #sidebar-nav {
+        width: 200px;
+    }
+    
+    body:has(#sidebar-nav) main {
+        margin-left: 200px;
+        padding: 20px;
+    }
+    
+    #login-form,
+    #register-form {
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    #sidebar-nav {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid #303030;
+    }
+    
+    body:has(#sidebar-nav) main {
+        margin-left: 0;
+        margin-top: 0;
+        padding: 15px;
+    }
+    
+    #confirmation-buttons {
+        flex-direction: column;
+    }
+    
+    #btn-yes,
+    #btn-no {
+        width: 100%;
+    }
+}
+
+/* Chat Message Styling */
+.chat-message {
+    padding: 12px 16px;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-size: 0.95em;
+    line-height: 1.5;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chat-message.system {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-left: 4px solid #3ea6ff;
+}
+
+.chat-message.user {
+    background-color: #1a4d7a;
+    color: #ffffff;
+    border-left: 4px solid #3ea6ff;
+}
+
+.chat-message.success {
+    background-color: #1a4d2a;
+    color: #90ee90;
+    border-left: 4px solid #00ff00;
+}
+
+.chat-message.error {
+    background-color: #4d1a1a;
+    color: #ff9090;
+    border-left: 4px solid #ff0000;
+}
+
+.chat-message.info {
+    background-color: #2a3a4a;
+    color: #9dd9ff;
+    border-left: 4px solid #3ea6ff;
+}
+
+/* Recording Button Active State */
+#record-button.recording {
+    background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%);
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.5);
+    animation: pulse 1.5s infinite;
+}
+
+#record-button.recording:hover {
+    background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%);
+    box-shadow: 0 8px 25px rgba(0, 255, 0, 0.7);
+}
+
+/* Sidebar Navigation Active State */
+#sidebar-nav nav a.active {
+    background-color: #2a2a2a;
+    border-left: 4px solid #3ea6ff;
+    padding-left: 16px;
+}
+
+/* Text Input Controls */
+#text-controls {
+    display: flex;
+    gap: 12px;
+    margin: 20px auto;
+    max-width: 800px;
+    align-items: center;
+}
+
+#text-input {
+    flex: 1;
+    background-color: #2a2a2a;
+    border: 2px solid #3a3a3a;
+    border-radius: 8px;
+    padding: 14px 18px;
+    color: #e0e0e0;
+    font-size: 1em;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+
+#text-input:focus {
+    outline: none;
+    border-color: #3ea6ff;
+    box-shadow: 0 0 0 3px rgba(62, 166, 255, 0.1);
+}
+
+#text-input::placeholder {
+    color: #707070;
+}
+
+#text-send-button {
+    background: linear-gradient(135deg, #3ea6ff 0%, #1a7fd9 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 32px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(62, 166, 255, 0.3);
+    font-family: 'Inter', sans-serif;
+}
+
+#text-send-button:hover {
+    background: linear-gradient(135deg, #5ab6ff 0%, #2a8fe9 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(62, 166, 255, 0.4);
+}
+
+#text-send-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(62, 166, 255, 0.3);
+}
