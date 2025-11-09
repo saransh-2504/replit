@@ -1,0 +1,8 @@
+Flask
+requests
+google-generativeai
+werkzeug
+Flask
+google-generativeai
+requests
+werkzeug
